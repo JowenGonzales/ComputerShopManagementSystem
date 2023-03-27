@@ -70,7 +70,7 @@
                     <h6 class="collapse-header">Manage Users:</h6>
                     <a class="collapse-item" href="{{route('user.add')}}">Add User </a>
                     <a class="collapse-item" href="{{route('user.edit')}}">Edit User  </a>
-                    <a class="collapse-item" href="cards.html">Delete User</a>
+                    <a class="collapse-item" href="{{route('user.delete')}}">Delete User</a>
                     <a class="collapse-item" href="cards.html">Manage User Roles</a>
                     <a class="collapse-item" href="cards.html">User's Usage Statistics</a>
                     <a class="collapse-item" href="cards.html">User's Billing Information</a>

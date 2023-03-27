@@ -25,4 +25,13 @@ class UsersController extends Controller
             'customers' => $customers
         ]);
     }
+
+    public function userdelete() {
+        $user = Auth::user();
+        $customers = User::where('role', 'user')->get();
+        return view('admin.users.deleteuser', [
+            'user' => $user,
+            'customers' => $customers
+        ]);
+    }
 }
