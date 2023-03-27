@@ -37,7 +37,7 @@
                             <tr>
                                 <td>{{$customer->id}}</td>
                                 <td>{{$customer->name}}</td>
-                                <td></td>
+                                <td><i class="bi bi-pen"></i></td>
                             </tr>
                         @endforeach
 
