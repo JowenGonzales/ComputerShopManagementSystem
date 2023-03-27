@@ -18,7 +18,7 @@
         rel="stylesheet" >
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    @yield('head-scripts')
 
 </head>
 <body>
@@ -69,7 +69,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manage Users:</h6>
                     <a class="collapse-item" href="{{route('user.add')}}">Add User </a>
-                    <a class="collapse-item" href="cards.html">Edit User  </a>
+                    <a class="collapse-item" href="{{route('user.edit')}}">Edit User  </a>
                     <a class="collapse-item" href="cards.html">Delete User</a>
                     <a class="collapse-item" href="cards.html">Manage User Roles</a>
                     <a class="collapse-item" href="cards.html">User's Usage Statistics</a>
@@ -420,7 +420,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
+                    <span>Copyright &copy; DevPortfolioHub2023</span>
                 </div>
             </div>
         </footer>
@@ -467,7 +467,6 @@
 
 
 
-
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -484,6 +483,9 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
+
+@yield('body-scripts')
+
 
 </body>
 </html>
