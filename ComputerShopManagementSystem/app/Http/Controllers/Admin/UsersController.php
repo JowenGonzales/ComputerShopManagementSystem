@@ -35,6 +35,16 @@ class UsersController extends Controller
             'customers' => $customers
         ]);
     }
+
+    public function userview() {
+        $user = Auth::user();
+        return view('admin.users.viewuser', [
+            'user' => $user
+        ]);
+    }
+
+
+
     //
 
 

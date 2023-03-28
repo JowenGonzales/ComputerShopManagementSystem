@@ -33,7 +33,11 @@
                                 <td>{{$customer->id}}</td>
                                 <td>{{$customer->name}}</td>
                                 <td>
-                                    <i class="bi bi-pen"></i>
+                                    <a href="{{route('user.view', $customer->id)}}">
+                                        <button class="btn btn-primary">
+                                            <i class="bi bi-pen"></i>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

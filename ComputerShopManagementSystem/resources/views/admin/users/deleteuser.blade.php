@@ -63,7 +63,7 @@
                                 <td>
 
                                     <button type="button" class="btn btn-primary actiondelete" data-toggle="modal" data-target="#exampleModal" id="actiondelete" data-user-id="{{$customer->id}}">
-                                        <i class="bi bi-pen"></i>
+                                        <i class="bi bi-trash"></i>
                                     </button>
                                 </td>
                             </tr>
