@@ -18,12 +18,14 @@
                     <div class="modal-body">
                         Are you sure you want to delete this user?
                         <p>ID: <span class="useridtext text-primary" ></span></p>
-                        <input type="hidden" id="userid" name="userid" class="userid">
+
                     </div>
                     <div class="modal-footer">
-                        <form>
+                        <form method="POST" >
+                            @csrf
+                            <input type="hidden" id="userid" name="userid" class="userid">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </form>
                     </div>
                 </div>

@@ -47,4 +47,9 @@ class UsersController extends Controller
         UserDatabaseHelper::add($request);
         return back();
     }
+
+    public function deleteuser(Request $request) {
+        UserDatabaseHelper::delete($request->userid);
+        return back();
+    }
 }

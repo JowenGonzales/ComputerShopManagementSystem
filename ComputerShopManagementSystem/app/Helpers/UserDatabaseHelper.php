@@ -12,4 +12,9 @@ class UserDatabaseHelper {
             'role' => $request->input('role', 'user')
         ]);
     }
+
+    public static function delete($id) {
+        $user = User::find($id);
+        $user->delete();
+    }
 }
