@@ -64,4 +64,9 @@ class UsersController extends Controller
         UserDatabaseHelper::delete($request->userid);
         return back();
     }
+    public function updateuser(Request $request, User $user) {
+        $customerID = $user->id;
+        UserDatabaseHelper::update($request, $customerID);
+        return back();
+    }
 }

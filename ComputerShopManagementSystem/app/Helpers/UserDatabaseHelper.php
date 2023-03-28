@@ -17,4 +17,10 @@ class UserDatabaseHelper {
         $user = User::find($id);
         $user->delete();
     }
+    public static function update(Request $request, $id) {
+        $customer = User::find($id);
+        $customer->name = $request->input('name');
+        $customer->email = $request->input('email');
+        $customer->save();
+    }
 }
