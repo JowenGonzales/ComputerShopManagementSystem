@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\UserDatabaseHelper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,5 +25,43 @@ class UsersController extends Controller
             'user' => $user,
             'customers' => $customers
         ]);
+    }
+
+    public function userdelete() {
+        $user = Auth::user();
+        $customers = User::where('role', 'user')->get();
+        return view('admin.users.deleteuser', [
+            'user' => $user,
+            'customers' => $customers
+        ]);
+    }
+
+    public function userview(User $user) {
+
+        $userloggedon = Auth::user();
+        return view('admin.users.viewuser', [
+            'user' => $userloggedon,
+            'customer' => $user
+        ]);
+    }
+
+
+
+    //
+
+
+    public function adduser(Request $request) {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'unique:users'],
+            'password' => ['required', 'string']
+        ]);
+        UserDatabaseHelper::add($request);
+        return back();
+    }
+
+    public function deleteuser(Request $request) {
+        UserDatabaseHelper::delete($request->userid);
+        return back();
     }
 }

@@ -19,14 +19,9 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     @yield('head-scripts')
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-
-
-
-
-
 <!-- Page Wrapper -->
 <div id="wrapper">
     <!-- Sidebar -->
@@ -70,7 +65,7 @@
                     <h6 class="collapse-header">Manage Users:</h6>
                     <a class="collapse-item" href="{{route('user.add')}}">Add User </a>
                     <a class="collapse-item" href="{{route('user.edit')}}">Edit User  </a>
-                    <a class="collapse-item" href="cards.html">Delete User</a>
+                    <a class="collapse-item" href="{{route('user.delete')}}">Delete User</a>
                     <a class="collapse-item" href="cards.html">Manage User Roles</a>
                     <a class="collapse-item" href="cards.html">User's Usage Statistics</a>
                     <a class="collapse-item" href="cards.html">User's Billing Information</a>

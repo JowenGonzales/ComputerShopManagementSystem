@@ -5,21 +5,25 @@
         <div class="card-body">
             <div class="">
                 <div>
-                    <div class="">
-                        <label>Name</label>
-                        <input type="text" class="form-control small " placeholder="John Doe">
-                    </div>
-                    <div class="pt-3">
-                        <label>Email</label>
-                        <input type="email" class="form-control small " placeholder="johndoe@gmail.com">
-                    </div>
-                    <div class="pt-3" >
-                        <label>Password</label>
-                        <input type="password" class="form-control small " placeholder="12345678">
-                    </div>
-                    <div class="mt-5">
-                        <input type="submit" class="form-control btn btn-primary" value="Add">
-                    </div>
+                    <form method="POST" >
+                        @csrf
+                        <div class="">
+                            <label>Name</label>
+                            <input type="text" class="form-control small " name="name" >
+                        </div>
+                        <div class="pt-3">
+                            <label>Email</label>
+                            <input type="email" class="form-control small " name="email" >
+                        </div>
+                        <div class="pt-3" >
+                            <label>Password</label>
+                            <input type="password" class="form-control small " name="password" >
+                        </div>
+                        <div class="mt-5">
+                            <input type="submit" class="form-control btn btn-primary" value="Add">
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
