@@ -36,10 +36,12 @@ class UsersController extends Controller
         ]);
     }
 
-    public function userview() {
-        $user = Auth::user();
+    public function userview(User $user) {
+
+        $userloggedon = Auth::user();
         return view('admin.users.viewuser', [
-            'user' => $user
+            'user' => $userloggedon,
+            'customer' => $user
         ]);
     }
 
