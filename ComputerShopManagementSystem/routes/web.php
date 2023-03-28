@@ -23,3 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'useradd'])->name('user.add');
 Route::get('/user/edit', [App\Http\Controllers\Admin\UsersController::class, 'useredit'])->name('user.edit');
 Route::get('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'userdelete'])->name('user.delete');
+
+// POST ROUTES
+Route::post('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'adduser'])->name('adduser');
