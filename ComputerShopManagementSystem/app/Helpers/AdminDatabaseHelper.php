@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminDatabaseHelper {
     public static function createAdmin() {
-        Admin::create([
-            'name' => "Jowen Gonzales",
-            'email' => "test@test.com",
-            'password' => bcrypt('testtest')
-        ]);
+        $admin = new Admin();
+        $admin->email = 'admin';
+        $admin->password = Hash::make('admin');
+        $admin->name = 'Jowen Gonzales';
+        $admin->save();
     }
 }
