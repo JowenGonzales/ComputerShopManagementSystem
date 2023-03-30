@@ -12,35 +12,35 @@ class UsersController extends Controller
 {
     //
     public function useradd() {
-        $user = Auth::user();
+        $admin = auth()->guard('admin')->user();
         return view('admin.users.adduser', [
-            'user' => $user
+            'user' => $admin
         ]);
     }
 
     public function useredit() {
-        $user = Auth::user();
+        $admin = auth()->guard('admin')->user();
         $customers = User::where('role' , 'user')->get();
         return view('admin.users.edituser', [
-            'user' => $user,
+            'user' => $admin,
             'customers' => $customers
         ]);
     }
 
     public function userdelete() {
-        $user = Auth::user();
+        $admin = auth()->guard('admin')->user();
         $customers = User::where('role', 'user')->get();
         return view('admin.users.deleteuser', [
-            'user' => $user,
+            'user' => $admin,
             'customers' => $customers
         ]);
     }
 
     public function userview(User $user) {
 
-        $userloggedon = Auth::user();
+        $adminlogged = auth()->guard('admin')->user();
         return view('admin.users.viewuser', [
-            'user' => $userloggedon,
+            'user' => $adminlogged,
             'customer' => $user
         ]);
     }

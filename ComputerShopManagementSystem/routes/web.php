@@ -19,28 +19,44 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'useradd'])->name('user.add');
-Route::get('/user/edit', [App\Http\Controllers\Admin\UsersController::class, 'useredit'])->name('user.edit');
-Route::get('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'userview'])->name('user.view');
 
-Route::get('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'userdelete'])->name('user.delete');
-Route::post('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'deleteuser'])->name('deleteuser');
-
-// POST ROUTES
-Route::post('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'adduser'])->name('adduser');
-Route::post('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'updateuser'])->name('user.view');
 
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    // Authentication
     Route::get('/login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'getLogin'])->name('adminLogin');
     Route::post('/login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
+    Route::post('/logout', [\App\Http\Controllers\Admin\AdminAuthController::class, 'adminLogout'])->name('admin.logout');
+
+
+    // Dashboard
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // User
+    // User > Add
+    Route::get('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'useradd'])->name('user.add');
+    Route::post('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'adduser'])->name('adduser');
+
+    
+    // User > Edit
+    Route::get('/user/edit', [App\Http\Controllers\Admin\UsersController::class, 'useredit'])->name('user.edit');
+    Route::get('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'userview'])->name('user.view');
+
+
+
+
+    // User > Delete
+    Route::get('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'userdelete'])->name('user.delete');
+    Route::post('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'deleteuser'])->name('deleteuser');
+    Route::post('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'updateuser'])->name('user.view');
+
+
+
 
     Route::group(['middleware' => 'adminauth'], function () {
         Route::get('/', function () {
             return view('welcome');
         })->name('adminDashboard');
-
     });
 });
