@@ -69,4 +69,17 @@ class UsersController extends Controller
         UserDatabaseHelper::update($request, $customerID);
         return back();
     }
+
+
+    // Manage User Roles
+
+    public function manageuserroles() {
+        $admin = auth()->guard('admin')->user();
+        $customers = User::where('role' , 'user')->get();
+
+        return view('admin.users.manageuserroles', [
+           'user' => $admin,
+            'customers' => $customers
+        ]);
+    }
 }

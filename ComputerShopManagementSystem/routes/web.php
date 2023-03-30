@@ -51,6 +51,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'deleteuser'])->name('deleteuser');
     Route::post('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'updateuser'])->name('user.view');
 
+    // User > Manage User Roles
+    Route::get('/user/manageuserroles', [App\Http\Controllers\Admin\UsersController::class, 'manageuserroles'])->name('user.manageuserroles');
+
     // Computers
     Route::get('/computer/add', [App\Http\Controllers\Admin\ComputersController::class, 'add'])->name('computer.add');
     Route::get('/computer/add', [App\Http\Controllers\Admin\ComputersController::class, 'add'])->name('computer.add');
