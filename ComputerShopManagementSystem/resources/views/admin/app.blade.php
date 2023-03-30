@@ -66,9 +66,9 @@
                     <a class="collapse-item" href="{{route('user.add')}}">Add User </a>
                     <a class="collapse-item" href="{{route('user.edit')}}">Edit User  </a>
                     <a class="collapse-item" href="{{route('user.delete')}}">Delete User</a>
-                    <a class="collapse-item" href="cards.html">Manage User Roles</a>
-                    <a class="collapse-item" href="cards.html">User's Usage Statistics</a>
-                    <a class="collapse-item" href="cards.html">User's Billing Information</a>
+                    <a class="collapse-item" href="{{route('user.manageuserroles')}}">Manage User Roles</a>
+                    <a class="collapse-item" href="">User's Usage Statistics</a>
+                    <a class="collapse-item" href="{{route('user.usersbillinginformation')}}">User's Billing Information</a>
                 </div>
             </div>
         </li>
@@ -82,7 +82,7 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manage Computers:</h6>
-                    <a class="collapse-item" href="buttons.html">Add</a>
+                    <a class="collapse-item" href="{{route('computer.add')}}">Add</a>
                     <a class="collapse-item" href="cards.html">Edit Configuration  </a>
                     <a class="collapse-item" href="cards.html">Usage Statistics</a>
                     <a class="collapse-item" href="cards.html">Maintenance Logs</a>
@@ -447,10 +447,10 @@
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
-                <a href="{{ route('logout') }}" class="btn btn-primary"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <a href="{{ route('admin.logout') }}" class="btn btn-primary"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </div>

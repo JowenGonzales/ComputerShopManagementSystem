@@ -35,9 +35,9 @@
 
                 <form class="auth-login-form mt-2" action="{{route('adminLoginPost')}}" method="post">
                     @csrf
-                    <div class="mb-1">
+                    <div class="mb-1" >
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" value="{{old('email') }}" autofocus />
+                        <input type="text" class="form-control" id="email" name="email" value="admin" autofocus />
                         @if ($errors->has('email'))
                             <span class="help-block font-red-mint">
                                 <strong>{{ $errors->first('email') }}</strong>

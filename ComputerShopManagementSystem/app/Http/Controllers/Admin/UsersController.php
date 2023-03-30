@@ -12,38 +12,40 @@ class UsersController extends Controller
 {
     //
     public function useradd() {
-        $user = Auth::user();
+        $admin = auth()->guard('admin')->user();
         return view('admin.users.adduser', [
-            'user' => $user
+            'user' => $admin
         ]);
     }
 
     public function useredit() {
-        $user = Auth::user();
+        $admin = auth()->guard('admin')->user();
         $customers = User::where('role' , 'user')->get();
-        return view('admin.users.edituser', [
-            'user' => $user,
-            'customers' => $customers
-        ]);
-    }
-
-    public function userdelete() {
-        $user = Auth::user();
-        $customers = User::where('role', 'user')->get();
-        return view('admin.users.deleteuser', [
-            'user' => $user,
+        return view('admin.users.edituser.edituser', [
+            'user' => $admin,
             'customers' => $customers
         ]);
     }
 
     public function userview(User $user) {
 
-        $userloggedon = Auth::user();
-        return view('admin.users.viewuser', [
-            'user' => $userloggedon,
+        $adminlogged = auth()->guard('admin')->user();
+        return view('admin.users.edituser.viewuser', [
+            'user' => $adminlogged,
             'customer' => $user
         ]);
     }
+
+    public function userdelete() {
+        $admin = auth()->guard('admin')->user();
+        $customers = User::where('role', 'user')->get();
+        return view('admin.users.deleteuser', [
+            'user' => $admin,
+            'customers' => $customers
+        ]);
+    }
+
+
 
 
 
@@ -68,5 +70,28 @@ class UsersController extends Controller
         $customerID = $user->id;
         UserDatabaseHelper::update($request, $customerID);
         return back();
+    }
+
+
+    // Manage User Roles
+
+    public function manageuserroles() {
+        $admin = auth()->guard('admin')->user();
+        $customers = User::where('role' , 'user')->get();
+
+        return view('admin.users.manageuserroles.manageuserroles', [
+           'user' => $admin,
+            'customers' => $customers
+        ]);
+    }
+
+    public function usersbillinginformation() {
+        $admin = auth()->guard('admin')->user();
+        $customers = User::where('role' , 'user')->get();
+
+        return view('admin.users.manageuserroles', [
+            'user' => $admin,
+            'customers' => $customers
+        ]);
     }
 }
