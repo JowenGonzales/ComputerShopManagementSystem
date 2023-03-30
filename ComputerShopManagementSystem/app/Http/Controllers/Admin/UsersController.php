@@ -21,9 +21,18 @@ class UsersController extends Controller
     public function useredit() {
         $admin = auth()->guard('admin')->user();
         $customers = User::where('role' , 'user')->get();
-        return view('admin.users.edituser', [
+        return view('admin.users.edituser.edituser', [
             'user' => $admin,
             'customers' => $customers
+        ]);
+    }
+
+    public function userview(User $user) {
+
+        $adminlogged = auth()->guard('admin')->user();
+        return view('admin.users.edituser.viewuser', [
+            'user' => $adminlogged,
+            'customer' => $user
         ]);
     }
 
@@ -36,14 +45,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function userview(User $user) {
 
-        $adminlogged = auth()->guard('admin')->user();
-        return view('admin.users.viewuser', [
-            'user' => $adminlogged,
-            'customer' => $user
-        ]);
-    }
 
 
 
@@ -77,7 +79,7 @@ class UsersController extends Controller
         $admin = auth()->guard('admin')->user();
         $customers = User::where('role' , 'user')->get();
 
-        return view('admin.users.manageuserroles', [
+        return view('admin.users.manageuserroles.manageuserroles', [
            'user' => $admin,
             'customers' => $customers
         ]);
