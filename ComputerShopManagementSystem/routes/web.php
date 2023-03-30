@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'useradd'])->name('user.add');
     Route::post('/user/add', [App\Http\Controllers\Admin\UsersController::class, 'adduser'])->name('adduser');
 
-    
+
     // User > Edit
     Route::get('/user/edit', [App\Http\Controllers\Admin\UsersController::class, 'useredit'])->name('user.edit');
     Route::get('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'userview'])->name('user.view');
@@ -51,8 +51,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'deleteuser'])->name('deleteuser');
     Route::post('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'updateuser'])->name('user.view');
 
-
-
+    // Computers
+    Route::get('/computer/add', [App\Http\Controllers\Admin\ComputersController::class, 'add'])->name('computer.add');
+    Route::get('/computer/add', [App\Http\Controllers\Admin\ComputersController::class, 'add'])->name('computer.add');
 
     Route::group(['middleware' => 'adminauth'], function () {
         Route::get('/', function () {

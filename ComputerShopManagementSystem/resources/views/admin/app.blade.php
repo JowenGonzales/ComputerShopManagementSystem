@@ -82,7 +82,7 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manage Computers:</h6>
-                    <a class="collapse-item" href="buttons.html">Add</a>
+                    <a class="collapse-item" href="{{route('computer.add')}}">Add</a>
                     <a class="collapse-item" href="cards.html">Edit Configuration  </a>
                     <a class="collapse-item" href="cards.html">Usage Statistics</a>
                     <a class="collapse-item" href="cards.html">Maintenance Logs</a>
