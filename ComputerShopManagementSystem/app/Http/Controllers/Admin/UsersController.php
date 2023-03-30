@@ -82,4 +82,14 @@ class UsersController extends Controller
             'customers' => $customers
         ]);
     }
+
+    public function usersbillinginformation() {
+        $admin = auth()->guard('admin')->user();
+        $customers = User::where('role' , 'user')->get();
+
+        return view('admin.users.manageuserroles', [
+            'user' => $admin,
+            'customers' => $customers
+        ]);
+    }
 }
