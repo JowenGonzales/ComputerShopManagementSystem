@@ -59,7 +59,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     // Computers
     Route::get('/computer/add', [App\Http\Controllers\Admin\ComputersController::class, 'add'])->name('computer.add');
-    Route::get('/computer/add', [App\Http\Controllers\Admin\ComputersController::class, 'add'])->name('computer.add');
+    Route::post('/computer/add', [App\Http\Controllers\Admin\ComputersController::class, 'addcomputer'])->name('addcomputer');
+
+    Route::get('/computer/viewcomputers', [App\Http\Controllers\Admin\ComputersController::class, 'computerView'])->name('computer.view');
+    Route::get('/computer/editcomputer/{computer}', [App\Http\Controllers\Admin\ComputersController::class, 'computerEdit'])->name('computer.edit');
+
+
+
 
     Route::group(['middleware' => 'adminauth'], function () {
         Route::get('/', function () {

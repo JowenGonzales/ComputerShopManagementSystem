@@ -14,9 +14,9 @@ class UsersController extends Controller
     //
     public function useradd() {
         $admin = auth()->guard('admin')->user();
-        NotificationHelper::success();
+
         return view('admin.users.adduser', [
-            'user' => $admin
+            'user' => $admin,
         ]);
     }
 
