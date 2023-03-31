@@ -11,14 +11,8 @@
                             <label>Name</label>
                             <input type="text" class="form-control small " name="name" >
                         </div>
-                        <div class="pt-3">
-                            <label>Email</label>
-                            <input type="email" class="form-control small " name="email" >
-                        </div>
-                        <div class="pt-3" >
-                            <label>Password</label>
-                            <input type="password" class="form-control small " name="password" >
-                        </div>
+
+
                         <div class="mt-5">
                             <input type="submit" class="form-control btn btn-primary" value="Add">
                         </div>
