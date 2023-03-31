@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\NotificationHelper;
 use App\Helpers\UserDatabaseHelper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -13,6 +14,7 @@ class UsersController extends Controller
     //
     public function useradd() {
         $admin = auth()->guard('admin')->user();
+        NotificationHelper::success();
         return view('admin.users.adduser', [
             'user' => $admin
         ]);

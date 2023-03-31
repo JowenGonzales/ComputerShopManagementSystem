@@ -13,13 +13,18 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" >
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-    @yield('head-scripts')
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Sweet Alert -->
+    <script src="{{asset('assets/sweetalert/sweetalert2.all.min.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('assets/sweetalert/sweetalert2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+
+
+    @yield('head-scripts')
 </head>
 <body>
 <!-- Page Wrapper -->
@@ -481,6 +486,16 @@
 
 @yield('body-scripts')
 
+<script>
+    $(document).ready(function() {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
 
+        })
+    });
+</script>
 </body>
 </html>

@@ -7,7 +7,7 @@
                 <div>
                     <form method="POST" >
                         @csrf
-                        <div class="">
+                        <div class="" >
                             <label>Name</label>
                             <input type="text" class="form-control small " name="name" >
                         </div>
@@ -20,7 +20,7 @@
                             <input type="password" class="form-control small " name="password" >
                         </div>
                         <div class="mt-5">
-                            <input type="submit" class="form-control btn btn-primary" value="Add">
+                            <input type="submit" class="form-control btn btn-primary" value="Add" >
                         </div>
                     </form>
 
