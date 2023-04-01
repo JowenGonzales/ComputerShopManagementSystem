@@ -3,13 +3,8 @@
 @section('content')
     <div class="container-xl px-4 mt-4">
         <!-- Account page navigation-->
-        <nav class="nav nav-borders">
-            <a class="nav-link active ms-0" href="account-profile.html">Profile</a>
-            <a class="nav-link" href="account-billing.html">Billing</a>
-            <a class="nav-link" href="account-security.html">Security</a>
-            <a class="nav-link" href="account-notifications.html">Notifications</a>
-        </nav>
-        <hr class="mt-0 mb-4">
+
+        
         <div class="row">
             <div class="col-xl-4">
                 <!-- Profile picture card-->
