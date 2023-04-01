@@ -14,8 +14,8 @@
                             border-left-dark
                             @break
                     @endswitch
-                ">
-                    <div class="card-body text-start">
+                 ">
+                    <div class="card-body text-center">
 
                         <div>
                             {{$computer->name}}
@@ -31,10 +31,14 @@
                                 @case('OFFLINE')
                                     badge badge-dark
                                     @break
-
+                                
                             @endswitch
                             ">
                                 {{$computer->status}}</span>
+                        </div>
+                        <div>
+                            <a href="#" ><i class="bi bi-three-dots"></i></a>
+
                         </div>
                     </div>
 
