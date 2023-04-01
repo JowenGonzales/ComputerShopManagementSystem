@@ -20,7 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 
-
+Route::get('/simulation', [\App\Http\Controllers\Simulation\SimulationController::class, 'index'])->name('simulation');
+Route::get('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'all'])->name('computers.all');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -65,6 +66,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/computer/editcomputer/{computer}', [App\Http\Controllers\Admin\ComputersController::class, 'computerEdit'])->name('computer.edit');
     Route::post('/computer/editcomputer/{computer}', [App\Http\Controllers\Admin\ComputersController::class, 'updatecomputer'])->name('updatecomputer');
 
+
+    // Pricing and Packages
 
 
     Route::group(['middleware' => 'adminauth'], function () {
