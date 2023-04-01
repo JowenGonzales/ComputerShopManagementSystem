@@ -63,7 +63,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::get('/computer/viewcomputers', [App\Http\Controllers\Admin\ComputersController::class, 'computerView'])->name('computer.view');
     Route::get('/computer/editcomputer/{computer}', [App\Http\Controllers\Admin\ComputersController::class, 'computerEdit'])->name('computer.edit');
-
+    Route::post('/computer/editcomputer/{computer}', [App\Http\Controllers\Admin\ComputersController::class, 'updatecomputer'])->name('updatecomputer');
 
 
 
