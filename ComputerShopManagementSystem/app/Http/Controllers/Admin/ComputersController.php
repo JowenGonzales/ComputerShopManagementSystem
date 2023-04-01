@@ -42,4 +42,9 @@ class ComputersController extends Controller
             'computer' => $computer
         ]);
     }
+
+    public function updatecomputer(Request $request, Computer $computer) {
+        ComputerDatabaseHelper::update($request, $computer->id);
+        return back();
+    }
 }
