@@ -31,13 +31,17 @@
                                 @case('OFFLINE')
                                     badge badge-dark
                                     @break
-                                
+
                             @endswitch
                             ">
                                 {{$computer->status}}</span>
                         </div>
                         <div>
-                            <a href="#" ><i class="bi bi-three-dots"></i></a>
+                                <a href="#" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="bi bi-three-dots"></i></a>
+
+                                <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
+                                    <a class="dropdown-item" href="#">Login</a>
+                                </div>
 
                         </div>
                     </div>
