@@ -41,6 +41,7 @@
 
                                 <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
                                     <a class="dropdown-item" href="#">Login</a>
+                                    <a class="dropdown-item" href="{{route('computers.show', $computer->id)}}">Information</a>
                                 </div>
 
                         </div>

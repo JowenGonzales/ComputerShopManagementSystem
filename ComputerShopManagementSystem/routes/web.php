@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::get('/simulation', [\App\Http\Controllers\Simulation\SimulationController::class, 'index'])->name('simulation');
 Route::get('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'all'])->name('computers.all');
+Route::get('/simulation/computers/{computer}', [\App\Http\Controllers\Simulation\SimulationController::class, 'showcomputer'])->name('computers.show');
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {

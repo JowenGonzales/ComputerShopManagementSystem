@@ -18,4 +18,10 @@ class SimulationController extends Controller
             'computers' => $computers
         ]);
     }
+    public function showcomputer(Computer $computer) {
+
+        return view('simulation.computers.showcomputer', [
+            'computer' => $computer
+        ]);
+    }
 }
