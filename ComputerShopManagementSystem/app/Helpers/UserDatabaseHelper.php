@@ -23,4 +23,9 @@ class UserDatabaseHelper {
         $customer->email = $request->input('email');
         $customer->save();
     }
+    public static function update_time($time, $id) {
+        $user = User::find($id);
+        $user->time_available = $time;
+        $user->save();
+    }
 }

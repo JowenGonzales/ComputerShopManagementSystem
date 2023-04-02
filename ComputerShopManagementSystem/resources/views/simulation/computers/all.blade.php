@@ -40,7 +40,7 @@
                                 <a href="#" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="bi bi-three-dots"></i></a>
 
                                 <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
-                                    <a class="dropdown-item" href="#">Login</a>
+                                    <a class="dropdown-item login-computer" data-toggle="modal" id="actiondelete" data-target="#exampleModal" id="" data-user-id="{{$computer->id}}" data-pc-name="{{$computer->name}}"  >Login</a>
                                     <a class="dropdown-item" href="{{route('computers.show', $computer->id)}}">Information</a>
                                 </div>
 
@@ -50,7 +50,68 @@
                 </div>
             @endforeach
 
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Login <span class="useridtext text-primary" ></span></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modalCloseButton">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form method="POST" action="{{route('login')}}" >
+
+                                @csrf
+                            <div class="modal-body">
+
+                                    <input type="hidden" id="userid" name="computerid" class="userid">
+                                    <div>
+                                        <label>Name</label>
+                                        <input type="email" class="form-control" name="email" id="name">
+                                    </div>
+                                    <div>
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" name="password" id="password">
+                                    </div>
+
+                            </div>
+                            <div class="modal-footer">
+
+                                    @csrf
+                                    <input type="hidden" id="userid" name="userid" class="userid">
+
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
         </div>
     </div>
 
+@endsection
+@section('body-scripts')
+    <script>
+        $(document).ready(function() {
+            $('.login-computer').click(function () {
+                var userID = $(this).data('user-id');
+                var computerName =  $(this).data('pc-name');
+                $('.useridtext').text(computerName);
+                $('#userid').val(userID);
+            });
+
+            $('#modalCloseButton').click(function() {
+
+               $('#name').val('');
+               $('#password').val('');
+            });
+        });
+
+    </script>
 @endsection
