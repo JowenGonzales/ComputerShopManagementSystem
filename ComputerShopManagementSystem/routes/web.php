@@ -26,7 +26,7 @@ Route::post('/simulation/computers/all', [\App\Http\Controllers\Simulation\Simul
 
 Route::get('/simulation/computers/{computer}', [\App\Http\Controllers\Simulation\SimulationController::class, 'showcomputer'])->name('computers.show');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\User\UserController::class, 'dashboard'])->name('user.home');
 Route::post('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 Route::get('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 

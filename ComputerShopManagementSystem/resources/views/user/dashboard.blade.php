@@ -13,7 +13,6 @@
                                 Time Remaining</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                 <span id="countdown-timer"></span>
-                                <input type="text" name="remainingtime" id="remainingtime">
                             </div>
                         </div>
                         <div class="col-auto">

@@ -380,7 +380,10 @@
                     Logout
                 </a>
                 <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="d-none">
+
                     @csrf
+                    <input type="text" name="userid" value="{{$user->id}}">
+                    <input type="text" name="remainingtime" id="remainingtime">
                 </form>
             </div>
         </div>
