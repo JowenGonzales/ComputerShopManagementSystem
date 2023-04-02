@@ -58,35 +58,36 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Login <span class="useridtext text-primary" ></span></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="modalCloseButton">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+                            <form method="POST" action="{{route('login')}}" >
+
+                                @csrf
                             <div class="modal-body">
 
-                                <form method="POST" >
-                                    @csrf
-                                    <input type="hidden" id="userid" name="userid" class="userid">
-
+                                    <input type="hidden" id="userid" name="computerid" class="userid">
                                     <div>
                                         <label>Name</label>
-                                        <input type="email" class="form-control">
+                                        <input type="email" class="form-control" name="email" id="name">
                                     </div>
                                     <div>
                                         <label>Password</label>
-                                        <input type="email" class="form-control">
+                                        <input type="password" class="form-control" name="password" id="password">
                                     </div>
-                                </form>
+
                             </div>
                             <div class="modal-footer">
-                                <form method="POST" >
+
                                     @csrf
                                     <input type="hidden" id="userid" name="userid" class="userid">
 
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </form>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -104,6 +105,13 @@
                 $('.useridtext').text(computerName);
                 $('#userid').val(userID);
             });
+
+            $('#modalCloseButton').click(function() {
+
+               $('#name').val('');
+               $('#password').val('');
+            });
         });
+
     </script>
 @endsection

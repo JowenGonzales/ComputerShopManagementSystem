@@ -22,8 +22,13 @@ Auth::routes();
 
 Route::get('/simulation', [\App\Http\Controllers\Simulation\SimulationController::class, 'index'])->name('simulation');
 Route::get('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'all'])->name('computers.all');
+Route::post('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('computers.all.login');
+
 Route::get('/simulation/computers/{computer}', [\App\Http\Controllers\Simulation\SimulationController::class, 'showcomputer'])->name('computers.show');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
+Route::get('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     // Authentication

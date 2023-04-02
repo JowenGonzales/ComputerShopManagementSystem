@@ -24,4 +24,8 @@ class SimulationController extends Controller
             'computer' => $computer
         ]);
     }
+
+    public function login(Request $request) {
+        dd($request->computerid);
+    }
 }
