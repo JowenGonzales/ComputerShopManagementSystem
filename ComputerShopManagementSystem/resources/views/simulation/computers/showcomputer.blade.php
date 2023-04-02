@@ -4,7 +4,7 @@
     <div class="container-xl px-4 mt-4">
         <!-- Account page navigation-->
 
-        
+
         <div class="row">
             <div class="col-xl-4">
                 <!-- Profile picture card-->
@@ -32,8 +32,6 @@
                         <div>
                             <p>Last Used Time: <span>{{$computer->last_use_time}}</span></p>
                         </div>
-
-
                     </div>
                 </div>
             </div>
