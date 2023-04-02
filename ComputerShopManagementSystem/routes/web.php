@@ -29,6 +29,7 @@ Route::get('/simulation/computers/{computer}', [\App\Http\Controllers\Simulation
 Route::get('/home', [App\Http\Controllers\User\UserController::class, 'dashboard'])->name('user.home');
 Route::post('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 Route::get('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
+Route::get('/logout/{user}', [\App\Http\Controllers\User\UserController::class, 'emptyavailabletime'])->name('user.logout.user');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     // Authentication

@@ -124,7 +124,7 @@
                 $('#remainingtime').val(timeAvailable);
                 if (timeAvailable <= 0) {
                     clearInterval();
-                    window.location.replace('/logout');
+                    window.location.replace('/logout/{{$user->id}}');
                 }
 
             }, 1000);
