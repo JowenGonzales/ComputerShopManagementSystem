@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Helpers\UserDatabaseHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Computer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,11 +13,10 @@ use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
     //
-    public function dashboard() {
+    public function dashboard(Request $request) {
         $user = Auth::user();
         return view('user.dashboard', [
-
-            'user' => $user
+            'user' => $user,
         ]);
     }
     public static function logout(Request $request) {
