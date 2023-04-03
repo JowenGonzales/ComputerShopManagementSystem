@@ -103,6 +103,7 @@
                 var computerName =  $(this).data('pc-name');
                 $('.useridtext').text(computerName);
                 $('#userid').val(userID);
+                
             });
 
             $('#modalCloseButton').click(function() {
@@ -111,17 +112,7 @@
                $('#password').val('');
             });
 
-            $.ajax({
-                url: '/set_session',
-                type: 'POST',
-                data: { key: 'username', value: 'john' },
-                success: function(response) {
-                    console.log('Session variable set.');
-                },
-                error: function(xhr, status, error) {
-                    console.log('Error setting session variable: ' + error);
-                }
-            });
+
         });
 
     </script>

@@ -33,4 +33,11 @@ class SimulationController extends Controller
             'computer' => $computer
         ]);
     }
+    public function setsession(Request $request) {
+        DD("hELLO WORLS");
+        $key = $request->input('key');
+        $value = $request->input('value');
+        $request->session()->put($key, $value);
+        return response()->json(['message' => 'Session variable set.']);
+    }
 }
