@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Simulation;
 use App\Http\Controllers\Controller;
 use App\Models\Computer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SimulationController extends Controller
 {
@@ -24,8 +25,19 @@ class SimulationController extends Controller
             'computer' => $computer
         ]);
     }
-
     public function login(Request $request) {
-        dd($request->computerid);
+        $user = Auth::user();
+        $computer = Computer::find($request->input('computerid'));
+        return view('user.dashboard', [
+            'user' => $user,
+            'computer' => $computer
+        ]);
+    }
+    public function setsession(Request $request) {
+        DD("hELLO WORLS");
+        $key = $request->input('key');
+        $value = $request->input('value');
+        $request->session()->put($key, $value);
+        return response()->json(['message' => 'Session variable set.']);
     }
 }

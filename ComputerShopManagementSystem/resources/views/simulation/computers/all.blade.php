@@ -67,7 +67,7 @@
                                 @csrf
                             <div class="modal-body">
 
-                                    <input type="hidden" id="userid" name="computerid" class="userid">
+                                    <input type="" id="userid" name="computerid" class="userid">
                                     <div>
                                         <label>Name</label>
                                         <input type="email" class="form-control" name="email" id="name">
@@ -79,7 +79,6 @@
 
                             </div>
                             <div class="modal-footer">
-
                                     @csrf
                                     <input type="hidden" id="userid" name="userid" class="userid">
 
@@ -104,6 +103,7 @@
                 var computerName =  $(this).data('pc-name');
                 $('.useridtext').text(computerName);
                 $('#userid').val(userID);
+                
             });
 
             $('#modalCloseButton').click(function() {
@@ -111,6 +111,8 @@
                $('#name').val('');
                $('#password').val('');
             });
+
+
         });
 
     </script>

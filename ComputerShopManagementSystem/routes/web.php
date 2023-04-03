@@ -23,10 +23,12 @@ Auth::routes();
 Route::get('/simulation', [\App\Http\Controllers\Simulation\SimulationController::class, 'index'])->name('simulation');
 Route::get('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'all'])->name('computers.all');
 Route::post('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('computers.all.login');
+Route::post('/simulation/set_session', [\App\Http\Controllers\Simulation\SimulationController::class, 'setsession'])->name('setsession');
 
 Route::get('/simulation/computers/{computer}', [\App\Http\Controllers\Simulation\SimulationController::class, 'showcomputer'])->name('computers.show');
 
-Route::get('/home', [App\Http\Controllers\User\UserController::class, 'dashboard'])->name('user.home');
+Route::get('/home', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('login');
+
 Route::post('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 Route::get('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 Route::get('/logout/{user}', [\App\Http\Controllers\User\UserController::class, 'emptyavailabletime'])->name('user.logout.user');
