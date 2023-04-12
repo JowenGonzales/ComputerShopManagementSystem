@@ -8,7 +8,7 @@ class ComputerDatabaseHelper {
     public static function add(Request $request) {
         Computer::create([
             'name' => $request->input('name'),
-
+            'status' => 'OFFLINE'
         ]);
     }
 
@@ -28,6 +28,15 @@ class ComputerDatabaseHelper {
         $computer->storage = $request->input('storage');
         $computer->location = $request->input('location');
         $computer->notes = $request->input('notes');
+        $computer->save();
+    }
+
+    public static function makeonline($computer) {
+        $computer->status = 'ONLINE';
+        $computer->save();
+    }
+    public static function makeoffline($computer) {
+        $computer->status = 'OFFLINE';
         $computer->save();
     }
 }

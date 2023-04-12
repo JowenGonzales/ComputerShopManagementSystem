@@ -28,6 +28,7 @@ class SimulationController extends Controller
     public function login(Request $request) {
         $user = Auth::user();
         $computer = Computer::find($request->input('computerid'));
+
         return view('user.dashboard', [
             'user' => $user,
             'computer' => $computer

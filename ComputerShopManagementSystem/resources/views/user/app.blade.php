@@ -383,6 +383,7 @@
 
                     @csrf
                     <input type="text" name="userid" value="{{$user->id}}">
+                    <input type="text" name="computerid" value="{{$user->currentpc}}">
                     <input type="text" name="remainingtime" id="remainingtime">
                 </form>
             </div>

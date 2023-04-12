@@ -11,6 +11,7 @@ class Computer extends Model
     protected $table = 'computer';
     protected $fillable = [
         'name',
+        'status',
         'price_per_hour',
         'total_price',
         'operating_system',
