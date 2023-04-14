@@ -47,6 +47,25 @@ class UsersController extends Controller
         ]);
     }
 
+    public function timemanagement() {
+        $admin = auth()->guard('admin')->user();
+
+        $customers = User::where('role', 'user')->get();
+        return view('admin.users.timemanagement.timemanagement', [
+            'user' => $admin,
+            'customers' => $customers
+        ]);
+    }
+
+    public function timemanagementview(User $user) {
+
+        $adminlogged = auth()->guard('admin')->user();
+        return view('admin.users.timemanagement.view', [
+            'user' => $adminlogged,
+            'customer' => $user
+        ]);
+    }
+
 
 
 

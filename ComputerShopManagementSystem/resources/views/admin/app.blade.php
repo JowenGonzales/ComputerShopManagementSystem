@@ -68,6 +68,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manage Users:</h6>
+                    <a class="collapse-item" href="{{route('user.timemanagement')}}">Time Management </a>
                     <a class="collapse-item" href="{{route('user.add')}}">Add User </a>
                     <a class="collapse-item" href="{{route('user.edit')}}">Edit User  </a>
                     <a class="collapse-item" href="{{route('user.delete')}}">Delete User</a>

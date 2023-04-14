@@ -58,6 +58,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     // User > Delete
     Route::get('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'userdelete'])->name('user.delete');
+
+    // Time Management
+    Route::get('/user/timemanagement', [App\Http\Controllers\Admin\UsersController::class, 'timemanagement'])->name('user.timemanagement');
+    Route::get('/user/timemanagement/{user}', [App\Http\Controllers\Admin\UsersController::class, 'timemanagementview'])->name('user.timemanagement.view');
+
+
     Route::post('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'deleteuser'])->name('deleteuser');
     Route::post('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'updateuser'])->name('user.view');
 
