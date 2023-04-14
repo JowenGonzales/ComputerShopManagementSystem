@@ -60,10 +60,19 @@ class UsersController extends Controller
     public function timemanagementview(User $user) {
 
         $adminlogged = auth()->guard('admin')->user();
+
         return view('admin.users.timemanagement.view', [
             'user' => $adminlogged,
             'customer' => $user
         ]);
+    }
+
+    public function adjusttime(Request $request, User $user) {
+
+        $amount = $request->input('amount');
+        $operation = $request->input('operation');
+        UserDatabaseHelper::adjust_time($user, $amount, $operation);
+        return back();
     }
 
 

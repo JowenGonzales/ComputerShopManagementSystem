@@ -28,4 +28,21 @@ class UserDatabaseHelper {
         $user->time_available = $time;
         $user->save();
     }
+    public static function adjust_time($user, $amount, $operation) {
+        if (strtolower($operation) == 'add') {
+            self::add_time($user, $amount);
+        }
+        if (strtolower($operation)  == 'subtract') {
+            self::subtract_time($user, $amount);
+        }
+
+    }
+    public static function add_time($user, $amount) {
+        $user->time_available = $amount;
+        $user->save();
+    }
+    public static function subtract_time($user, $amount) {
+        $user->time_available = $amount;
+        $user->save();
+    }
 }
