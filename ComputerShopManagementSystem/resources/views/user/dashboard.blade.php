@@ -85,6 +85,13 @@
                 </div>
             </div>
         </div>
+
+    </div>
+    <div class="container row">
+        <div>
+            <p>Sample Simulation</p>
+            <a href="https://henryheffernan.com/">Open Computer</a>
+        </div>
     </div>
 
 @endsection
