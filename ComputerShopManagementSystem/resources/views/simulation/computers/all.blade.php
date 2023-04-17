@@ -67,7 +67,7 @@
                                 @csrf
                             <div class="modal-body">
 
-                                    <input type="" id="userid" name="computerid" class="userid">
+                                    <input type="hidden" id="userid" name="computerid" class="userid">
                                     <div>
                                         <label>Name</label>
                                         <input type="email" class="form-control" name="email" id="name">
@@ -103,7 +103,7 @@
                 var computerName =  $(this).data('pc-name');
                 $('.useridtext').text(computerName);
                 $('#userid').val(userID);
-                
+
             });
 
             $('#modalCloseButton').click(function() {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Helpers\ComputerDatabaseHelper;
 use App\Helpers\UserDatabaseHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Computer;
@@ -20,7 +21,15 @@ class UserController extends Controller
         ]);
     }
     public static function logout(Request $request) {
+
+        // Updates the time depends on the user
         UserDatabaseHelper::update_time($request->remainingtime, $request->userid);
+
+        // Get the current computer and then make it offline
+        $computer = Computer::find($request->input('computerid'));
+        ComputerDatabaseHelper::makeoffline($computer);
+
+
         Auth::logout();
         Session::flush();
         Session::put('success', 'You are logout sucessfully');

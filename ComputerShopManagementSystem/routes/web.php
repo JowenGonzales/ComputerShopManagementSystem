@@ -20,14 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/simulation', [\App\Http\Controllers\Simulation\SimulationController::class, 'index'])->name('simulation');
+Route::get('/simulation', [\App\Http\Controllers\Simulation\SimulationController::class, 'all'])->name('simulation');
 Route::get('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'all'])->name('computers.all');
 Route::post('/simulation/computers/all', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('computers.all.login');
 Route::post('/simulation/set_session', [\App\Http\Controllers\Simulation\SimulationController::class, 'setsession'])->name('setsession');
 
 Route::get('/simulation/computers/{computer}', [\App\Http\Controllers\Simulation\SimulationController::class, 'showcomputer'])->name('computers.show');
 
-Route::get('/home', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('login');
+Route::get('/home', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('home');
 
 Route::post('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 Route::get('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
@@ -58,6 +58,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     // User > Delete
     Route::get('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'userdelete'])->name('user.delete');
+
+    // Time Management
+    Route::get('/user/timemanagement', [App\Http\Controllers\Admin\UsersController::class, 'timemanagement'])->name('user.timemanagement');
+    Route::get('/user/timemanagement/{user}', [App\Http\Controllers\Admin\UsersController::class, 'timemanagementview'])->name('user.timemanagement.view');
+    Route::post('/user/timemanagement/{user}', [App\Http\Controllers\Admin\UsersController::class, 'adjusttime'])->name('user.timemanagement.view');
+
+
     Route::post('/user/delete', [App\Http\Controllers\Admin\UsersController::class, 'deleteuser'])->name('deleteuser');
     Route::post('/user/edit/{user}', [App\Http\Controllers\Admin\UsersController::class, 'updateuser'])->name('user.view');
 
