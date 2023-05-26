@@ -27,18 +27,22 @@ Route::post('/simulation/set_session', [\App\Http\Controllers\Simulation\Simulat
 
 Route::get('/simulation/computers/{computer}', [\App\Http\Controllers\Simulation\SimulationController::class, 'showcomputer'])->name('computers.show');
 
-Route::get('/home', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('home');
+Route::get('/home', [\App\Http\Controllers\Simulation\SimulationController::class, 'login'])->name('home')->middleware('auth');
 
 Route::post('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 Route::get('/logout', [\App\Http\Controllers\User\UserController::class, 'logout'])->name('user.logout');
 Route::get('/logout/{user}', [\App\Http\Controllers\User\UserController::class, 'emptyavailabletime'])->name('user.logout.user');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    // Authentication
-    Route::get('/login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'getLogin'])->name('adminLogin');
-    Route::post('/login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
-    Route::post('/logout', [\App\Http\Controllers\Admin\AdminAuthController::class, 'adminLogout'])->name('admin.logout');
 
+
+// Authentication
+Route::get('admin/login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'getLogin'])->name('adminLogin');
+Route::post('admin/login', [\App\Http\Controllers\Admin\AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
+Route::post('admin/logout', [\App\Http\Controllers\Admin\AdminAuthController::class, 'adminLogout'])->name('admin.logout');
+
+
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     // Dashboard
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
